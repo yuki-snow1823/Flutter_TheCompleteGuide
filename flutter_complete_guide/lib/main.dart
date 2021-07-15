@@ -8,15 +8,19 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  MyAppState createState() => MyAppState();
 }
 
 // _アプリ名tateができる
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State < MyApp > {
   var questionIndex = 0;
 
   void answerQuestion() {
-    questionIndex = questionIndex + 1;
+    setState(() {
+      // すぐ変更したいからここに入れた
+      questionIndex = questionIndex + 1;
+    });
+    // questionIndex = questionIndex + 1;
     print(questionIndex);
   }
 
@@ -35,7 +39,7 @@ class _MyAppState extends State<MyApp> {
           title: Text('My First App'),
         ),
         body: Column(
-          children: <Widget>[
+          children: < Widget > [
             Text(questions[questionIndex]),
             RaisedButton(child: Text('Answer 1'), onPressed: answerQuestion),
             RaisedButton(child: Text('Answer 2'), onPressed: () => print('Answer 2 chosen!')),
