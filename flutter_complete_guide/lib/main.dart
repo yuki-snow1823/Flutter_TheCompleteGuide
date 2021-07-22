@@ -9,21 +9,21 @@ void main() => runApp(MyApp());
 // statefulにする
 class MyApp extends StatefulWidget {
   @override
-  MyAppState createState() => MyAppState();
+  _MyAppState createState() => _MyAppState();
 }
 
 // _アプリ名stateができる
-class MyAppState extends State < MyApp > {
-  var questionIndex = 0;
+class _MyAppState extends State < MyApp > {
+  var _questionIndex = 0;
 
   void answerQuestion() {
     // stateを更新するときに使うメソッド
     setState(() {
       // すぐ変更したいからここに入れた
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
-    // questionIndex = questionIndex + 1;
-    print(questionIndex);
+    // _questionIndex = questionIndex + 1;
+    print(_questionIndex);
   }
 
   @override
@@ -42,7 +42,7 @@ class MyAppState extends State < MyApp > {
         ),
         body: Column(
           children: < Widget > [
-            Text(questions[questionIndex]),
+            Text(questions[_questionIndex]),
             RaisedButton(child: Text('Answer 1'), onPressed: answerQuestion),
             RaisedButton(child: Text('Answer 2'), onPressed: () => print('Answer 2 chosen!')),
             RaisedButton(child: Text('Answer 3'), onPressed: answerQuestion),
