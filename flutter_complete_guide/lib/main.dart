@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State < MyApp > {
   var _questionIndex = 0;
 
-  void answerQuestion() {
+  void _answerQuestion() {
     // stateを更新するときに使うメソッド
     setState(() {
       // すぐ変更したいからここに入れた
@@ -43,12 +43,13 @@ class _MyAppState extends State < MyApp > {
         body: Column(
           children: < Widget > [
             Text(questions[_questionIndex]),
-            RaisedButton(child: Text('Answer 1'), onPressed: answerQuestion),
+            RaisedButton(child: Text('Answer 1'), onPressed: _answerQuestion),
             RaisedButton(child: Text('Answer 2'), onPressed: () => print('Answer 2 chosen!')),
-            RaisedButton(child: Text('Answer 3'), onPressed: answerQuestion),
+            RaisedButton(child: Text('Answer 3'), onPressed: _answerQuestion),
           ],
         ),
       ),
     );
   }
 }
+
