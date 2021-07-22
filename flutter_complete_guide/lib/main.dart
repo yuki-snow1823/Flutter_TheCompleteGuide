@@ -6,16 +6,18 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
+// statefulにする
 class MyApp extends StatefulWidget {
   @override
   MyAppState createState() => MyAppState();
 }
 
-// _アプリ名tateができる
+// _アプリ名stateができる
 class MyAppState extends State < MyApp > {
   var questionIndex = 0;
 
   void answerQuestion() {
+    // stateを更新するときに使うメソッド
     setState(() {
       // すぐ変更したいからここに入れた
       questionIndex = questionIndex + 1;
