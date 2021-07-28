@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 }
 
 // _アプリ名stateができる
-class _MyAppState extends State < MyApp > {
+class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
 
   void _answerQuestion() {
@@ -35,8 +35,18 @@ class _MyAppState extends State < MyApp > {
     // return MaterialApp(home: Text('Hello!'))
 
     var questions = [
-      'What\'s your favorite color? ',
-      'What\'s your favorite animal? ',
+      {
+        'questionText': 'What\'s your favorite color? ',
+        'answers': ['Black', 'Red', 'Green', 'White'],
+      },
+      {
+        'questionText': 'What\'s your favorite animal? ',
+        'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+      },
+      {
+        'questionText': 'What\'s your favorite instructor? ',
+        'answers': ['Max', 'Max', 'Max', 'Max'],
+      },
     ];
     return MaterialApp(
       home: Scaffold(
@@ -55,4 +65,3 @@ class _MyAppState extends State < MyApp > {
     );
   }
 }
-
