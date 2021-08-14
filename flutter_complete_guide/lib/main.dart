@@ -17,9 +17,26 @@ class MyApp extends StatefulWidget {
 
 // _アプリ名stateができる
 class _MyAppState extends State<MyApp> {
+  static const questions = [
+    {
+      'questionText': 'What\'s your favorite color? ',
+      'answers': ['Black', 'Red', 'Green', 'White'],
+    },
+    {
+      'questionText': 'What\'s your favorite animal? ',
+      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+    },
+    {
+      'questionText': 'What\'s your favorite instructor? ',
+      'answers': ['Max', 'Max', 'Max', 'Max'],
+    },
+  ];
+
   var _questionIndex = 0;
 
+
   void _answerQuestion() {
+    if (_questionIndex < questions.length) {}
     // stateを更新するときに使うメソッド
     setState(() {
       // すぐ変更したいからここに入れた
@@ -34,20 +51,6 @@ class _MyAppState extends State<MyApp> {
     // homeが名前付き変数として定義されている
     // return MaterialApp(home: Text('Hello!'))
 
-    var questions = [
-      {
-        'questionText': 'What\'s your favorite color? ',
-        'answers': ['Black', 'Red', 'Green', 'White'],
-      },
-      {
-        'questionText': 'What\'s your favorite animal? ',
-        'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
-      },
-      {
-        'questionText': 'What\'s your favorite instructor? ',
-        'answers': ['Max', 'Max', 'Max', 'Max'],
-      },
-    ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -56,7 +59,8 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Question(questions[_questionIndex]['questionText']),
-            ...(questions[_questionIndex]['answers'] as List<String>).map((answer) {
+            ...(questions[_questionIndex]['answers'] as List<String>)
+                .map((answer) {
               return Answer(_answerQuestion, answer);
             }).toList()
           ],
